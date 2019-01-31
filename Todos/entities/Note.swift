@@ -8,28 +8,28 @@
 
 import Foundation
 
-class Note: Record {
+class Note: CustomStringConvertible {
+    
     var id: Int
     
     var title: String
     
-    var description: String
+    var noteDescription: String
     
     var createdAt: String
-    
-    init (id: Int, title: String, description: String, createdAt: String) {
-        self.id = id
-        self.title = title
-        self.description = description
-        self.createdAt = createdAt
-    }
-    
-    func getInformationAboutRecord() -> String {
+
+    var description: String {
         return """
         Title: \(title)
-        Description: \(description)
+        Description: \(noteDescription)
         Created at: \(createdAt)
         """
     }
     
+    init (id: Int, title: String, noteDescription: String, createdAt: String) {
+        self.id = id
+        self.title = title
+        self.noteDescription = noteDescription
+        self.createdAt = createdAt
+    }
 }

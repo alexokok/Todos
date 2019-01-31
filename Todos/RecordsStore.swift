@@ -10,105 +10,81 @@ import Foundation
 
 class RecordsStore {
     
-    private enum RecordType {
-        case note, todo, def
+    private var notes: [Note] = [Note]()
+    private var todos: [Todo] = [Todo]()
+    
+    func add(note: Note) {
+        notes.append(note)
     }
     
-    
-    var records: [Record]
-    init() {
-        records = [Record]()
+    func add(todo: Todo) {
+        todos.append(todo)
     }
     
-    func showAllRecords() {
-        if records.isEmpty {
-            print("no records in list of records")
-            return
-        }
-        
-        print("----- All records in list ------")
-        for record in records {
-            print("""
-                ------------ \(getRecordType(record: record)) --------------
-                \(record.getInformationAboutRecord())
-                --------------------------------
-                """)
+    func update(note: Note) {
+        if let index = notes.indexOf(note) {
+            notes[index] = note
         }
     }
     
-    func addRecord(record: Record) {
-        records.append(record)
-    }
-    
-    func updateRecord(newRecord: Record) {
-        if let index = records.firstIndex(where: { $0.id == newRecord.id}) {
-            records[index] = newRecord
+    func update(todo: Todo) {
+        if let index = todos.indexOf(todo) {
+            todos[index] = todo
         }
     }
     
-    func removeRecord(record: Record) {
-        if let index = records.firstIndex(where: {$0.id == record.id }) {
-            records.remove(at: index)
+    func delete(note: Note) {
+        if let index = notes.indexOf(note) {
+            notes.remove(at: index)
         }
     }
     
-    func showAllTodos() {
-        let todos = getRecordsByType(recordsType: .todo)
+    func delete(todo: Todo) {
+        if let index = todos.indexOf(todo) {
+            todos.remove(at: index)
+        }
+    }
+    
+    func printTodos() {
         if todos.isEmpty {
             print("Todos list is empty")
             return
         }
         
-        print("---------- All todos ---------")
+        print("Todos count: \(todos.count)")
         for todo in todos {
-            print(todo.getInformationAboutRecord())
-            print("--------------------------")
+            print(todo)
+            print("\n")
         }
     }
     
-    func showNotFinishedTodos() {
-        let todos = getRecordsByType(recordsType: .todo)
-        if todos.isEmpty {
-            print("All todos complete")
+    func printNotes() {
+        if notes.isEmpty {
+            print("Notes list is empty")
             return
         }
         
-        print("---------- All todos that not finished ---------")
-        for todo in todos {
-            if (todo as! Todo).finishAt == nil {
-                print(todo.getInformationAboutRecord())
-                print("--------------------------")
-            }
+        print("Notes count: \(notes.count)")
+        for note in notes {
+            print(note)
+            print("\n")
         }
     }
-    
-    func showAllNotes() {
-        let notes = getRecordsByType(recordsType: .note)
-        if notes.isEmpty {
-            print("Notes is empty")
-        }
-        
-        print("---------- All notes ---------")
-        for record in records {
-            if getRecordType(record: record) == .note {
-                print(record.getInformationAboutRecord())
-                print("--------------------------------")
-            }
-        }
+}
+
+
+extension Array where Element: Todo {
+    func indexOf(_ todo: Todo) -> Int? {
+       return firstIndex { $0.id == todo.id }
     }
     
-    private func getRecordsByType(recordsType: RecordType) -> [Record] {
-        return records.filter({getRecordType(record: $0) == recordsType})
+    func notFinished() -> [Todo]? {
+        return filter { $0.finishAt == nil }
     }
-    
-    private func getRecordType(record: Record) -> RecordType {
-        switch record{
-        case is Todo:
-            return .todo
-        case is Note:
-            return .note
-        default:
-            return .def
-        }
+}
+
+extension Array where Element: Note {
+    func indexOf(_ note: Note) -> Int? {
+        return firstIndex { $0.id == note.id}
     }
 }

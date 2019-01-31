@@ -10,8 +10,6 @@
 		025C6F2222007C2C00082319 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025C6F2122007C2C00082319 /* main.swift */; };
 		025C6F2922007C4500082319 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025C6F2822007C4500082319 /* Todo.swift */; };
 		025C6F2B22007C6700082319 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025C6F2A22007C6700082319 /* Note.swift */; };
-		025C6F2D22007C9300082319 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025C6F2C22007C9300082319 /* Record.swift */; };
-		025C6F2F22007D7900082319 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025C6F2E22007D7900082319 /* Priority.swift */; };
 		025C6F3122007F6F00082319 /* RecordsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025C6F3022007F6F00082319 /* RecordsStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,8 +30,6 @@
 		025C6F2122007C2C00082319 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		025C6F2822007C4500082319 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		025C6F2A22007C6700082319 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		025C6F2C22007C9300082319 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		025C6F2E22007D7900082319 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		025C6F3022007F6F00082319 /* RecordsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,8 +73,6 @@
 		025C6F3222007F8100082319 /* entities */ = {
 			isa = PBXGroup;
 			children = (
-				025C6F2E22007D7900082319 /* Priority.swift */,
-				025C6F2C22007C9300082319 /* Record.swift */,
 				025C6F2A22007C6700082319 /* Note.swift */,
 				025C6F2822007C4500082319 /* Todo.swift */,
 			);
@@ -145,8 +139,6 @@
 				025C6F3122007F6F00082319 /* RecordsStore.swift in Sources */,
 				025C6F2222007C2C00082319 /* main.swift in Sources */,
 				025C6F2922007C4500082319 /* Todo.swift in Sources */,
-				025C6F2D22007C9300082319 /* Record.swift in Sources */,
-				025C6F2F22007D7900082319 /* Priority.swift in Sources */,
 				025C6F2B22007C6700082319 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
